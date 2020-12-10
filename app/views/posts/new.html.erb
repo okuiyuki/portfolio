@@ -1,2 +1,13 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_with(model: @post, local: true) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title%>
+
+    <%= f.label :discription %>
+    <%= f.text_area :discription %>
+
+    <%= f.label :github_url %>
+    <%= f.url_field :github_url %>
+
+    <%= f.label :app_url %>
+    <%= f.url_field :app_url%>
+<% end %>

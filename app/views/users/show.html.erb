@@ -1,2 +1,5 @@
 <%= @user.name %>
 <%= @user.email %>
+<% if @user.posts.any? %>
+<%= render @posts%>
+<% end %>
