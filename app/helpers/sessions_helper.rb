@@ -36,9 +36,34 @@ module SessionsHelper
         cookies.permanent[:remember_token] = user.remember_token
     end
 
+    #ユーザーのセッションを消去する
     def forget(user)
         user.forget
         cookies.delete(:user_id)
         cookies.delete(:remember_token)
+    end
+
+    #ログイン済みのユーザーか確認とurl記憶
+    def logged_in_user
+        unless logged_in?
+            store_location
+            flash[:danger] = 'Please log in'
+            redirect_to login_url
+        end
+    end
+
+    #urlを覚えておく
+    def store_location
+        session[:forwarding_url] = request.original_url if request.get?
+    end
+
+    #指定のurlもしくはsessionに覚えたurlにリダイレクト
+    def redirect_back_or(default)
+        redirect_to(session[:forwarding_url || default ])
+        session.delete(:forwarding_url)
+    end
+
+    def current_user?(user)
+        user == current_user
     end
 end
