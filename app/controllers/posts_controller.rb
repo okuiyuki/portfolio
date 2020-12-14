@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
 
   def post_params
-    params.require(:post).permit(:title, :discription, :github_url, :app_url)
+    params.require(:post).permit(:title, :discription, :github_url, :app_url, :category_id)
   end
 
   def correct_user

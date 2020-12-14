@@ -11,3 +11,7 @@ User.create!(
     password: "aaaaaa",
     password_confirmation: "aaaaaa"
 )
+
+Category.create!(name: "フロントエンド")
+Category.create!(name: "バックエンド")
+Category.create!(name: "インフラ")
