@@ -9,9 +9,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = 'new post created'
+      flash[:success] = '投稿しました'
       redirect_to current_user
     else
+      flash[:danger] = '投稿に失敗しました'
       render 'new'
     end
   end

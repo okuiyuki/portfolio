@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
-            flash[:seccess] = 'Welcome to アプリ名' 
+            flash[:seccess] = 'ようこそ アプリ名へ' 
             redirect_to @user
         else
             render 'new'
