@@ -3,4 +3,6 @@
 <%= @post.github_url%>
 <%= @post.app_url%>
 
+<% if current_user?(@post.user) %>
 <%= link_to '編集', edit_post_path() %>
+<% end %>
