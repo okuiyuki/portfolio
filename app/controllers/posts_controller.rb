@@ -12,7 +12,6 @@ class PostsController < ApplicationController
       flash[:success] = '投稿しました'
       redirect_to current_user
     else
-      flash[:danger] = '投稿に失敗しました'
       render 'new'
     end
   end
