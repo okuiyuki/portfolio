@@ -63,6 +63,7 @@ module SessionsHelper
         session.delete(:forwarding_url)
     end
 
+    #現在のユーザーと渡されたユーザーが一致するか
     def current_user?(user)
         user == current_user
     end
