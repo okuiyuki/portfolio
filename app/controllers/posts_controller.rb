@@ -22,13 +22,39 @@ class PostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def edit
+  
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:success] = "投稿を更新しました"
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @user = @post.user
+  end
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :discription, :github_url, :app_url, :category_id)
   end
 
+  #def correct_user
+  #  @user = User.find(params[:id])
+  #  redirect_to root_url unless current_user?(@user)
+  #end
+
   def correct_user
-    @user = User.find(id: params[:id])
-    redirect_to root_url unless current_user?(@user)
+    @post = Post.find(params[:id])
+    @user = @post.user
+    redirect_to root_url unless current_user == @user
   end
 end
