@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def destroy
     @post = current_user.posts.find_by(id: params[:id])
     @post.destroy
-    redirect_to request.referrer || root_url
+    redirect_to current_user
   end
 
   def edit
