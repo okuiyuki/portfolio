@@ -1,10 +1,10 @@
-<nav>
-    <div class='左側'>
-        <div class=""><%= link_to 'ロゴ', root_path %></div>
+<nav class="navbar">
+    
+        <div class="navbar-brand"><%= link_to 'ロゴ', root_path %></div>
         <div class="">アプリ名</div>
-    </div>
+    
 
-    <div class='右側'>
+    
         <% if logged_in? %>
             <div class=""><%= link_to '新規投稿' , new_post_path %></div>
             <div class=""><%= link_to 'ログアウト', logout_path, method: :delete %></div>
@@ -14,5 +14,5 @@
             <div class=""><%= link_to '新規登録', new_user_path %></div>
             <div class=""><%= link_to 'ログイン', login_path %></div>
         <% end %>
-    </div>
+    
 </nav>
