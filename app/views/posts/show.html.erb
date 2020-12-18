@@ -7,3 +7,19 @@
     <%= link_to '編集', edit_post_path(@post) %>
     <%= link_to "削除", @post, method: :delete, data: { confirm: "この投稿を削除しますか？"} %>
 <% end %>
+
+<%# コメントフォーム%>
+<%= form_with(model: [@post, @comment], method: :post ) do |f| %>
+
+<%= f.label :body%>
+<%= f.text_field :body %>
+
+<%= f.hidden_field :post_id, value: @post.id %>
+
+<%= f.submit "コメントを投稿"%>
+
+<% end %>
+
+<% @comments.each do |comment|%>
+    <%= comment.body%>
+<% end %>
