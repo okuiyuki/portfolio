@@ -8,6 +8,9 @@
     <%= f.label :discription %>
     <%= f.text_area :discription %>
 
+    <%= f.label :images, 'イメージ画像' %>
+    <%= f.file_field :images, multiple: true %>
+
     <%= f.label :github_url %>
     <%= f.url_field :github_url %>
 

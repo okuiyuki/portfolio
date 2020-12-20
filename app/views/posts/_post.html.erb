@@ -4,3 +4,7 @@
 <%= post.github_url%>
 <%= post.app_url%>
 <% end %>
+<% if post.images.attached?%>
+    <% image_first = post.images[0] %>
+    <%= image_tag image_first%>
+<% end %>
