@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
 
     def destroy
-        @comment = current_user.comments.find(params[:post_id])
+        @comment = current_user.comments.find(params[:id])
         if @comment.destroy
             flash[:success]  = "コメントを削除しました"
             redirect_to post_path(@comment.post.id)
