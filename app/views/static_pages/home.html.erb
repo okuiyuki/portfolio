@@ -2,7 +2,5 @@
 <p>SS とは？</p>
 <p>あなたの作品を披露したり、他の人の作品を見つけたりできます。</p>
 
-<% @posts.each do |post| %>
-    <%= post.user.name%>
-    <%= post.title %>
-<%end%>
+<%= link_to "早速使ってみる", top_next_path%>
+
