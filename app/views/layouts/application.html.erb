@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body class="bg-light">
     <%= render 'layouts/header'%>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>">

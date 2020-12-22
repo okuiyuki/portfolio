@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         if @user.save
             log_in @user
             flash[:seccess] = 'ようこそ アプリ名へ' 
-            redirect_to @user
+            redirect_to top_next_path
         else
             render 'new'
         end
