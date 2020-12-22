@@ -18,21 +18,25 @@
 <% end %>
 
 <%# コメントフォーム%>
-<%= form_with(model: [@post, @comment], method: :post ) do |f| %>
+<% if logged_in? %>
+    <%= form_with(model: [@post, @comment], method: :post ) do |f| %>
 
-<%= f.label :body%>
-<%= f.text_field :body %>
+    <%= f.label :body%>
+    <%= f.text_field :body %>
 
-<%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.hidden_field :post_id, value: @post.id %>
 
-<%= f.submit "コメントを投稿"%>
+    <%= f.submit "コメントを投稿"%>
 
+    <% end %>
+<% else %>
+    <p>ログインしてコメントする</p>
 <% end %>
 
 <%# コメント一覧　%>
 <% @comments.each do |comment|%>
     <%= comment.body%>
-    <% if comment.user_id == current_user.id %>
-        <%= link_to '削除', post_comment_path(@post.id, comment.id), method: :delete %>
-    <% end %>
+    <%# if comment.user_id == current_user.id %>
+        <%#= link_to '削除', post_comment_path(@post.id, comment.id), method: :delete %>
+    <%# end %>
 <% end %>

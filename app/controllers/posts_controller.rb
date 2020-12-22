@@ -40,7 +40,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @comments = @post.comments
+    if logged_in?
     @comment = current_user.comments.new
+    end
   end
 
   private

@@ -4,6 +4,7 @@
     <%= submit_tag '検索', name: nil %>
 <% end %>
 
+<p class="">投稿一覧</p>
 <% @posts.each do |post| %>
     <%= link_to post_path(post) do %>　
         <%= post.user.name %>
