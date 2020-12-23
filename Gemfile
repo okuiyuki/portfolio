@@ -25,6 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
+gem 'font-awesome-rails'
 
 #error_message language change to ja
 gem 'rails-i18n'

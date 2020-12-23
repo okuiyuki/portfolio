@@ -5,7 +5,7 @@
 
 <%# イメージ画像表示　%>
 <% if @post.images.attached? %>
-    <% @post.images.each do |image|%>
+    <% @post.images.each do |image| %>
         <%= image_tag image %>
     <% end %>
 <% end %>
@@ -16,6 +16,15 @@
     <%= link_to '編集', edit_post_path(@post) %>
     <%= link_to "削除", @post, method: :delete, data: { confirm: "この投稿を削除しますか？"} %>
 <% end %>
+
+<%# twitter share %>
+<%= link_to "https://twitter.com/intent/tweet?url=#{ request.url }&text=#{@user.name}の#{@post.title}を見てみる" do %>
+    <%= fa_icon("twitter 3x")%>
+<% end%>
+
+
+
+
 
 <%# コメントフォーム%>
 <% if logged_in? %>
