@@ -1,6 +1,8 @@
+
 <p>検索</p>
 <%= form_tag(top_next_path, method: :get) do  %>
     <%= text_field_tag :search, @search %>
+    <%= select_tag("category_id", options_for_select(Category.change_order))%>
     <%= submit_tag '検索', name: nil %>
 <% end %>
 
