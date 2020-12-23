@@ -1,24 +1,44 @@
-# README
+# apuri
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## サイト概要
+web系エンジニアを目指す初学者が自分の作品を披露でき、人の作品をみて自分のポートフォリオの参考にできるプラットフォーム
 
-* Ruby version
+### 制作動機
+①初学者の人がポートフォリオを作る際、参考にできるポートフォリオを見つけることが難しいと感じたため<br>
+②自分のスキルを視覚化し、企業との接点を生み出す
 
-* System dependencies
+### 主な利用シーン
+①ポートフォリオをなににすれば良いか分からない時<br>
+②自分の制作したポートフォリオをシェアしたい時
 
-* Configuration
 
-* Database creation
+## 機能一覧
+・新規登録、ログイン機能、ユーザー編集機能<br>
+・ポートフォリオ投稿機能、一覧、削除、編集機能<br>
+・ツイッターシェア機能<br>
+・コメント投稿、削除機能<br>
+・カテゴリ機能<br>
+・フリーワード検索機能（複数検索可）<br>
+・画像投稿機能<br>
+・<br>
 
-* Database initialization
+Ruby 2.6.6<br>
+Rails 6.0.3.4<br>
+JavaScript<br>
+jQuery
 
-* How to run the test suite
+### 使用技術
+ Ruby 2.6.6<br>
+ Rails 6.0.3.4<br>
+ Mysql<br>
+ JavaScript<br>
+ jQuery<br
+ HTML,CSS,Bootstrap
+ Docker<br>
+ Git GitHub(project issue活用) 
+ AWS
+ Rspec
+ Puma
+ VScode
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
