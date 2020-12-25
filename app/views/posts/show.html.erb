@@ -19,7 +19,7 @@
 
 <%# twitter share %>
 <%= link_to "https://twitter.com/intent/tweet?url=#{ request.url }&text=#{@user.name}の#{@post.title}を見てみる" do %>
-    <%= fa_icon("twitter 3x")%>
+    <%= fa_icon("twitter 2x")%>
 <% end%>
 
 
@@ -44,6 +44,7 @@
 
 <%# コメント一覧　%>
 <% @comments.each do |comment|%>
+
     <%= comment.body%>
     <%# if comment.user_id == current_user.id %>
         <%#= link_to '削除', post_comment_path(@post.id, comment.id), method: :delete %>
