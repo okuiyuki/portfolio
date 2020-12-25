@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get 'top_next', to: 'static_pages#next'
+  get '/users', to: 'users#new' 
   root 'static_pages#home'
   
 
