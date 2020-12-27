@@ -1,5 +1,12 @@
+<%# プロフィール画像　%>
+<% if @user.image.attached? %>
+    <%= image_tag @user.image, class: "rounded-circle img-thumbnail w-25" %>
+<% end %>
+
 <%= @user.name %>
 <%= @user.email %>
+
+<h3 class="pt-3 pb-3">ポートフォリオ一覧</h2>
 <% if @user.posts.any? %>
-<%= render @posts %>
+    <%= render @posts %>
 <% end %>

@@ -9,6 +9,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }
     has_secure_password
     has_one_attached :image
+    validate :image_size
 
     #ランダムな文字列作
     def User.new_token
@@ -35,5 +36,21 @@ class User < ApplicationRecord
     #remember_digestをDBから消す
     def forget
         update_attribute(:remember_digest, nil)
+    end
+
+    #画像の検証
+    def image_size
+        return unless image.attached?
+        if image.blob.byte_size > 10.megabytes
+            image = nil
+            errors.add(:image, "10MB以下にしてください")
+        elsif !image?
+            image = nil
+            errors.add(:image, "ファイルタイプが無効です")
+        end
+    end
+
+    def image?
+        %w[image/jpg image/jpeg image/gif image/png].include?(image.blob.content_type)
     end
 end

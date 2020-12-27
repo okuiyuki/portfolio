@@ -10,6 +10,8 @@ ja:
                 email: メールアドレス
                 password: パスワード
                 password_confirmation: パスワード確認
+                image: プロフィール画像
             post:
                 title: タイトル
                 discription: 概要
+                image: イメージ画像

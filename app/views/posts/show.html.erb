@@ -30,7 +30,7 @@
 <% if logged_in? %>
     <%= form_with(model: [@post, @comment], method: :post ) do |f| %>
 
-    <%= f.label :body%>
+    <%= f.label :body , 'コメント'%>
     <%= f.text_field :body %>
 
     <%= f.hidden_field :post_id, value: @post.id %>
@@ -43,8 +43,9 @@
 <% end %>
 
 <%# コメント一覧　%>
+<p>コメント一覧</p>
 <% @comments.each do |comment|%>
-
+    <%= comment.user.name%>
     <%= comment.body%>
     <%# if comment.user_id == current_user.id %>
         <%#= link_to '削除', post_comment_path(@post.id, comment.id), method: :delete %>
