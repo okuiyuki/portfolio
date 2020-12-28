@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        if !@user.image.attached?
+            image_path = Rails.root.join('app/assets/images/user_default.png')
+            @user.image.attach(io: File.open(image_path), filename: 'user_default.png')
+        end
         if @user.save
             log_in @user
             flash[:seccess] = 'ようこそ アプリ名へ' 

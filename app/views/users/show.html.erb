@@ -2,11 +2,12 @@
 <% if @user.image.attached? %>
     <%= image_tag @user.image, class: "rounded-circle img-thumbnail w-25" %>
 <% end %>
-
+<p>名前</p>
 <%= @user.name %>
+<p>メールアドレス</p>
 <%= @user.email %>
 
-<h3 class="pt-3 pb-3">ポートフォリオ一覧</h2>
+<h3 class="pt-3 pb-3">投稿したポートフォリオ一覧</h2>
 <% if @user.posts.any? %>
     <%= render @posts %>
 <% end %>
