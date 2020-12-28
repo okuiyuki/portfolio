@@ -1,7 +1,12 @@
+<%# 投稿内容　%>
+<%= link_to user_path(@post.user) do %>
+    <%= image_tag @post.user.image, size: '40x40', class: 'rounded-circle'%>
+    <%= @post.user.name %>
+<% end %>
 <%= @post.title %>
-<%= @post.discription%>
-<%= @post.github_url%>
-<%= @post.app_url%>
+<%= safe_join(@post.discription.split("\n"), tag(:br)) %>
+<%= @post.github_url %>
+<%= @post.app_url %>
 
 <%# イメージ画像表示　%>
 <% if @post.images.attached? %>
@@ -19,6 +24,7 @@
 
 <%# twitter share %>
 <%= link_to "https://twitter.com/intent/tweet?url=#{ request.url }&text=#{@user.name}の#{@post.title}を見てみる" do %>
+    Twitterでシェア
     <%= fa_icon("twitter 2x")%>
 <% end%>
 
@@ -45,6 +51,9 @@
 <%# コメント一覧　%>
 <p>コメント一覧</p>
 <% @comments.each do |comment|%>
+    <% if comment.user.image.attached? %>
+        <%= image_tag comment.user.image, size: '40x40' %>
+    <% end %>
     <%= comment.user.name%>
     <%= comment.body%>
     <%# if comment.user_id == current_user.id %>

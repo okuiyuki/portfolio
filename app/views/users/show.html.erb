@@ -1,10 +1,9 @@
 <%# プロフィール画像　%>
-<% if @user.image.attached? %>
-    <%= image_tag @user.image, class: "rounded-circle img-thumbnail w-25" %>
-<% end %>
-<p>名前</p>
+<%= image_tag @user.image, size: '100x100', class: "rounded-circle" %>
+
+<p class="mb-0">名前</p>
 <%= @user.name %>
-<p>メールアドレス</p>
+<p class="mb-0">メールアドレス</p>
 <%= @user.email %>
 
 <h3 class="pt-3 pb-3">投稿したポートフォリオ一覧</h2>
