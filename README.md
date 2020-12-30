@@ -33,7 +33,7 @@ jQuery
  Rails 6.0.3.4<br>
  Mysql<br>
  JavaScript<br>
- jQuery<br
+ jQuery<br>
  HTML,CSS,Bootstrap
  Docker<br>
  Git GitHub(project issue活用) 
