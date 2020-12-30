@@ -8,15 +8,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
-    <% twitter_card = get_twitter_card_info(@post ? @post : nil) %>
-    <meta name="twitter:card" content=<%= twitter_card[:card] %> />
-    <meta name="twitter:site" content=<%= twitter_card[:site] %> />
-    <meta property="og:url" content=<%= twitter_card[:url] %> />
-    <meta property="og:title" content=<%= twitter_card[:title] %> />
-    <meta property="og:discription" content=<%= twitter_card[:discription] %> />
-    <meta property="og:image" content=<%= twitter_card[:image]%> />
-    <meta name="viewport" conten="width=device-width , initial-scale=1" />
-    
   </head>
 
   <body class="bg-light">
