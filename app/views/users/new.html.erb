@@ -25,7 +25,10 @@
 
     <div class="form-group">
         <%= f.label :image, 'プロフィール画像'%>
-        <%= f.file_field :image, class: "form-control" %>
+        <div class="custom-file">
+            <%= f.label :image, 'クリック', class: "custom-file-label"%>
+            <%= f.file_field :image, class: "custom-file-input" %>
+        </div>
     </div>
 
 

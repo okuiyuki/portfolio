@@ -1,23 +1,34 @@
 
-<p>検索</p>
-<%= form_tag(top_next_path, method: :get) do  %>
-    <%= text_field_tag :search, @search, class: 'form-control' %>
-    <%= select_tag("category_id", options_for_select(Category.change_order))%>
+<p class="h2 mb-4">検索</p>
+<%= form_tag(top_next_path, method: :get, class: "row") do  %>
+    <div class="col">
+        <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
+    </div>
+    <%= select_tag("category_id", options_for_select(Category.change_order), class: "mr-3")%>
     <%#= submit_tag '検索', name: nil %>
     <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
         <i class="fa fa-search"></i>検索
     <% end %>
 <% end %>
 
-<p class="">投稿一覧</p>
+<p class="h2 mb-5 mt-5">投稿一覧</p>
+
 <% @posts.each do |post| %>
-    <%= link_to post_path(post) do %>　
-        <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle'%>
-        <%= post.user.name %>
-        <%= post.title %>
-        <% if post.images.attached? %>
-            <% image = post.images[0]%>
-            <%= image_tag image, size: '100x100' %>
-        <% end %>
+    <div class="card mb-5">
+        <div class="card-img-top">
+            <% if post.images.attached? %>
+                <% image = post.images[0] %>
+                <%= image_tag image, width: '100%', height: '100%'  %>
+            <% end %>
+        </div>　
+    <%= link_to post_path(post) do %>
+        <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle' %>
+            <%= post.user.name %>
+        </div>
     <% end %>
+    </div>
 <% end %>
+
+
