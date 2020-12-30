@@ -1,21 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand " href="/top_next">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-        <% if logged_in? %>
-            <li class="nav-item"><%= link_to '新規投稿' , new_post_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to 'ユーザー' , user_path(current_user), class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to 'ユーザー設定', edit_user_path(current_user), class: "nav-link"%></li>
-        <% else %>
-            <li class="nav-item"><%= link_to '新規登録', new_user_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to 'ログイン', login_path, class: "nav-link" %></li>
-        <% end %>
-      </ul>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark p-3 ">
+      <a class="navbar-brand " href="/top_next"><strong>Navbar</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <% if logged_in? %>
+              <li class="nav-item"><%= link_to '新規投稿' , new_post_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to 'ユーザー' , user_path(current_user), class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to 'ユーザー設定', edit_user_path(current_user), class: "nav-link"%></li>
+          <% else %>
+              <li class="nav-item"><%= link_to '新規登録', new_user_path, class: "nav-link" %></li>
+              <li class="nav-item"><%= link_to 'ログイン', login_path, class: "nav-link" %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-
+  </nav>
+</header>
