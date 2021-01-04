@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_many :likes, dependent: :destroy
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
     validates :name, presence: true, length: { maximum: 50 }
@@ -10,6 +11,7 @@ class User < ApplicationRecord
     has_secure_password
     has_one_attached :image
     validate :image_size
+
 
     #ランダムな文字列作
     def User.new_token
@@ -48,6 +50,11 @@ class User < ApplicationRecord
             image = nil
             errors.add(:image, "ファイルタイプが無効です")
         end
+    end
+
+    #投稿に対していいねしたかどうか
+    def already_likes?(post)
+        self.likes.exists?(post_id: post.id)
     end
 
     def image?
