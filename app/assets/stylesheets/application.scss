@@ -14,11 +14,52 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.bg-thin-blue{
+    background-color: #f4fdfd;
+}
 
 a {
     font-size: 1.3em;
 }
 
-.navbar-brand{
-    font-size: 1.8em
+a:hover{
+    color: #13B1C0;
 }
+
+.navbar-brand{
+    font-size: 1.8em;
+    
+}
+
+strong {
+    color: #13B1C0;
+}
+
+.bg-light-blue{
+    background-color: #13B1C0;
+}
+
+.nav-link{
+    color: #13B1C0;
+}
+
+/*　ページネーション自体のスタイル　*/
+.pagination>li>a {
+    border: none;
+    color: #13B1C0; 
+}
+
+/*　表示しているページのデザイン　*/
+.pagination>.active>a {
+    background-color: #93c9ff;
+    border-radius: 20px;
+}
+
+/*　ホバー時のデザイン */
+.pagination>li>a:hover{
+    border-radius: 20px;
+}
+/* ページネーションの中央寄せ　*/
+.pagination {
+    justify-content: center;
+  }

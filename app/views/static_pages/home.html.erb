@@ -2,5 +2,14 @@
 <p>SS とは？</p>
 <p>あなたの作品を披露したり、他の人の作品を見つけたりできます。</p>
 
-<%= link_to "早速使ってみる", top_next_path%>
-
+<p class="h2 mb-4">検索</p>
+<%= form_tag(top_next_path, method: :get, class: "row") do  %>
+    <div class="col">
+        <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
+    </div>
+    <%= select_tag("category_id", options_for_select(Category.change_order), class: "mr-3")%>
+    <%#= submit_tag '検索', name: nil %>
+    <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
+        <i class="fa fa-search"></i>検索
+    <% end %>
+<% end %>

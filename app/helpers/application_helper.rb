@@ -19,6 +19,10 @@ module ApplicationHelper
         twitter_card
     end
 
+    def string_extraction_limit(string, limit)
+        string[0, limit]
+    end
+
     # <% twitter_card = get_twitter_card_info(@post ? @post : nil) %>
     # <meta name="twitter:card" content=<%= twitter_card[:card] %> />
     # <meta name="twitter:site" content=<%= twitter_card[:site] %> />

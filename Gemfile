@@ -26,6 +26,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'font-awesome-rails'
+gem 'kaminari'
 
 #error_message language change to ja
 gem 'rails-i18n'

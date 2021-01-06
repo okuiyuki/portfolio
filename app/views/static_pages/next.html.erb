@@ -4,7 +4,7 @@
     <div class="col">
         <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
     </div>
-    <%= select_tag("category_id", options_for_select(Category.change_order), class: "mr-3")%>
+    <%= select_tag("category_id", options_for_select(Category.change_order, selected: @category_id), class: "mr-3")%>
     <%#= submit_tag '検索', name: nil %>
     <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
         <i class="fa fa-search"></i>検索
@@ -21,14 +21,19 @@
                 <%= image_tag image, width: '100%', height: '100%'  %>
             <% end %>
         </div>　
-    <%= link_to post_path(post) do %>
-        <div class="card-body">
-            <h5 class="card-title"><%= post.title %></h5>
-            <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle' %>
-            <%= post.user.name %>
-        </div>
-    <% end %>
+        <%= link_to post_path(post) do %>
+            <div class="card-body">
+                <h5 class="card-title"><%= post.title %></h5>
+                <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle' %>
+                <%= post.user.name %>
+                <%= string_extraction_limit(post.discription, 200 )%>
+                <%#= safe_join(post.discription.split("\n"), tag(:br))%>
+                
+            </div>
+        <% end %>
     </div>
 <% end %>
+
+<%= paginate @posts %>
 
 
