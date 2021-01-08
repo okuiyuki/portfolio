@@ -1,17 +1,23 @@
 <%# 投稿内容　%>
 <%= link_to user_path(@post.user) do %>
-    <%= image_tag @post.user.image, size: '40x40', class: 'rounded-circle'%>
+    <%= image_tag @post.user.image, size: '40x40', class: 'rounded-circle mr-3'%>
     <%= @post.user.name %>
 <% end %>
+<p class="h2 mt-3">アプリ名</p>
 <%= @post.title %>
+<p class="h2 mt-3 mb-3">概要</p>
 <%= safe_join(@post.discription.split("\n"), tag(:br)) %>
-<%= @post.github_url %>
-<%= @post.app_url %>
+
+<p class="h2">GitHub URL</p>
+<%= link_to @post.github_url, @post.github_url %>
+
+<p class="h2">App URL</p>
+<%= link_to @post.app_url, @post.app_url %>
 
 <%# イメージ画像表示　%>
 <% if @post.images.attached? %>
     <% @post.images.each do |image| %>
-        <%= image_tag image %>
+        <%= image_tag(image, class:"mt-4") %>
     <% end %>
 <% end %>
 
@@ -48,7 +54,7 @@
 
     <%= f.hidden_field :post_id, value: @post.id %>
 
-    <%= f.submit "コメントを投稿"%>
+    <%= f.submit "投稿"%>
 
     <% end %>
 <% else %>
