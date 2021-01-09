@@ -1,0 +1,33 @@
+<% visiter = notification.visiter %>
+<% visited = notification.visited %>
+
+<div class="col-md-6 mx-auto">
+    <div class="form-inline">
+        <span>
+            <%= link_to user_path(visiter) do %>
+                <%= image_tag visiter.image, size: '50x50' %>
+                <strong><%= visiter.name %></strong>
+            <% end %>
+            さんが
+
+            <% case notification.action %>
+            <% when 'like' then %>
+                <%= link_to 'あなたのポートフォリオ', post_path(notification.post) %>にいいねしました
+            <% when 'comment' then %>
+                <% if notification.post.user_id == visited.id %>
+                    <%= link_to 'あなたのポートフォリオ', post_path(notification.post)%>
+                <% else %>
+                    <span>
+                        <%= link_to post_path(notification.post) do %>
+                            <%= image_tag notification.post.user.image, size: '50x50'%>
+                            <strong>
+                                <%= notification.post.user.name %>さんのポートフォリオ
+                            </strong>
+                        <% end %>
+                    </span>
+                <% end %>
+                にコメントしました
+            <% end %>
+        </span>
+    </div>
+</div>
