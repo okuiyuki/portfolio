@@ -18,12 +18,14 @@
     background-color: #f4fdfd;
 }
 
-a {
+/*a {
     font-size: 1.3em;
+    color: #13B1C0;
 }
-
+*/
 a:hover{
     color: #13B1C0;
+    text-decoration: none;
 }
 
 .navbar-brand{
@@ -62,8 +64,96 @@ strong {
 /* ページネーションの中央寄せ　*/
 .pagination {
     justify-content: center;
-  }
+}
 
 .navbar-toggler-icon{
     color: white;
+}
+
+/* フッター　*/
+footer{
+    font-family: "Gill Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color:#4fc3ce;
+    height: 120px;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+}
+
+/* 折り畳みボタン */
+.navbar-toggler{
+    background-color: #4fc3ce;
+
+}
+
+/* 投稿のshow */
+.border-bottom-5{
+    border-bottom: 5px solid #4fc3ce;
+}
+
+.col-md-3{
+    p{
+        text-align: center;
+        background-color: #4fc3ce;
+        color: white;
+        border-radius: 1em;
+        
+    }
+}
+
+.col-md-3{
+    padding-left: 0px;
+}
+
+.title{
+    font-size: 1.2em;
+}
+
+.edit{
+    font-size: 1.5em;
+    color: #1da1f2;
+}
+
+.trash{
+    font-size: 1.5em;
+    color: red;
+}
+
+.carousel-item{
+    img{
+        width: 100%;
+        height: 30em;
+    }
+}
+
+.form{
+    width: 20em;
+    height: 10em;
+    resize: none;
+    border: 2px solid #4fc3ce;
+    border-radius: 0.67em;
+    
+}
+
+textarea:focus {
+    border: solid 2px #4fc3ce;
+    outline: 0;
+}
+
+.comment-btn{
+    background-color: #4fc3ce;
+    border: none;
+    color: white;
+    border-radius: 0.5em;
+    box-shadow: 2px 2px 2px #3fa1aa;
+    &:active{
+        box-shadow: none;
+    }
+    &:hover{
+        text-decoration: none;
+    }
 }
