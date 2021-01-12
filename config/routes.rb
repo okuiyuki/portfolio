@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
   get 'posts/new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -19,4 +20,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes, only: [:create, :destroy]
   end
+
+  resources :contacts, only: [:new, :create]
 end

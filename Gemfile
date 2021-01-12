@@ -27,7 +27,7 @@ gem 'jquery-rails'
 gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'kaminari'
-
+gem 'dotenv-rails'
 #error_message language change to ja
 gem 'rails-i18n'
 

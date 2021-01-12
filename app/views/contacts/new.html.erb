@@ -1,0 +1,18 @@
+<p class="h2 text-center">お問い合わせ</p>
+
+<%= form_with(model: @contact, local: true) do |f| %>
+  <div class="form-group">  
+    <%= f.label :name, '名前'%>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message, 'お問い合せ内容' %>
+    <%= f.text_area :message, size: "5x10", class: "form-control" %>
+  </div>
+
+  <div class="form-group text-center">
+  <%= f.submit '送信', class: "btn btn-primary" %>
+  </div>
+  
+<% end %>

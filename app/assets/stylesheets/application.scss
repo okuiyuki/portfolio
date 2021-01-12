@@ -78,16 +78,19 @@ footer{
     background-color:#4fc3ce;
     height: 120px;
     color: white;
-    justify-content: center;
-    text-align: center;
     letter-spacing: 1px;
-    font-size: 1.2em;
+    span{
+        font-size: 1.5em;
+}}
+
+.contact{
+    color :white;
 }
+
 
 /* 折り畳みボタン */
 .navbar-toggler{
     background-color: #4fc3ce;
-
 }
 
 /* 投稿のshow */
