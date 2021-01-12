@@ -3,10 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
 
     before do
-        @user = FactoryBot.create(:user)
-        @post = FactoryBot.build(:post, user_id: @user.id)
-        Category.create(id: 1, name: "フロントエンド")
-        @post.category_id = 1
+        @post = FactoryBot.create(:post)
     end
 
     it "title,discription,category_id,user_idがあれば有効" do
@@ -34,7 +31,6 @@ RSpec.describe Post, type: :model do
     end
 
     it "userが消えるとpostも消える" do
-        @user.posts << @post
-        expect{@user.destroy}.to change{Post.count}.by(-1)
+        expect{@post.user.destroy}.to change{Post.count}.by(-1)
     end
 end

@@ -4,5 +4,7 @@ FactoryBot.define do
         discription { "testdiscription" }
         github_url { "example.com" }
         app_url { "example.com" }
+        association :user
+        association :category
     end
 end
