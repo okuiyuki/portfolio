@@ -7,6 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if logged_in? %>
+              <li class="nav-item"><%= link_to '検索' , top_next_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to '新規投稿' , new_post_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to 'ユーザー' , user_path(current_user), class: "nav-link" %></li>
