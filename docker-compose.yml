@@ -23,6 +23,13 @@ services:
       - db
     stdin_open: true
     tty: true
+  nginx:
+    build:
+      context: nginx
+    ports:
+      - 80:80
+    depends_on:
+      - web
 volumes:
   bundle_path:
     driver: local
