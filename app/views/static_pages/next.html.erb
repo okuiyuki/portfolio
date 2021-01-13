@@ -5,14 +5,13 @@
         <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
     </div>
     <%= select_tag("category_id", options_for_select(Category.change_order, selected: @category_id), class: "mr-3")%>
-    <%#= submit_tag '検索', name: nil %>
     <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
         <i class="fa fa-search"></i>検索
     <% end %>
 <% end %>
 
 <p class="h2 mb-5 mt-5">投稿一覧</p>
-
+<!--
 <% @posts.each do |post| %>
     <div class="card mb-5">
         <div class="card-img-top">
@@ -33,7 +32,8 @@
         <% end %>
     </div>
 <% end %>
-
+-->
+<%= render @posts %>
 <%= paginate @posts %>
 
 

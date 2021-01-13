@@ -11,9 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  */
-@import "bootstrap";
-@import "font-awesome";
 
+@import "font-awesome";
+@import "bootstrap";
 .bg-thin-blue{
     background-color: #e2fafa;
 }
@@ -23,6 +23,7 @@
     color: #13B1C0;
 }
 */
+/* navbar */
 a:hover{
     color: #13B1C0;
     text-decoration: none;
@@ -45,13 +46,17 @@ strong {
     color: #13B1C0;
 }
 
+.nav-item{
+    color: #13B1C0;
+}
+
 /*　ページネーション自体のスタイル　*/
 .pagination>li>a {
     border: none;
     color: #13B1C0; 
 }
 
-/*　表示しているページのデザイン　*/
+/*　表示しているページネーションのデザイン　*/
 .pagination>.active>a {
     background-color: #93c9ff;
     border-radius: 20px;
