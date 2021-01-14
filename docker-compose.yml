@@ -26,6 +26,7 @@ services:
   nginx:
     build:
       context: nginx
+    command: /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
     ports:
       - 80:80
     depends_on:
