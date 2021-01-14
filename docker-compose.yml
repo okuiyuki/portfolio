@@ -4,6 +4,8 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
+    cap_add:
+      - SYS_ADMIN
     ports:
       - '3306:3306'
     command: --default-authentication-plugin=mysql_native_password
@@ -11,10 +13,13 @@ services:
       - mysql-data:/var/lib/mysql
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bundle exec puma -C config/puma.rb #bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
       - bundle_path:/bundle
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
+      - log-data:/myapp/log
     environment: 
       - BUNDLE_PATH=/bundle
     ports:
@@ -27,6 +32,9 @@ services:
     build:
       context: nginx
     command: /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
+    volumes:
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
     ports:
       - 80:80
     depends_on:
@@ -35,4 +43,10 @@ volumes:
   bundle_path:
     driver: local
   mysql-data:
+    driver: local
+  tmp-data:
+    driver: local
+  public-data:
+    driver: local
+  log-data:
     driver: local
