@@ -1,38 +1,52 @@
 <div class="top-main">
     <div class="top-main-top mb-5">
         <div class="row">
-            <div class="col-4 text-right">
-            <%= image_tag 'man.png', size: '150x200'%>
+            <div class="col-sm-4 text-right">
+                <%= image_tag 'man.png', size: '150x200'%>
             </div>
-            <div class="col-4 align-self-center text-center">
-                エンジニになりたるために<br>
+            <div class="col-sm-4 align-self-center text-center">
+                <p>エンジニになりたるために<br>
                 ポートフォリオ作りたいけど<br>
-                なに作ればいいんだろう？
+                なに作ればいいんだろう？</p>
             </div>
         </div>
     </div>
     <div class="top-main-search">
-        <%= form_tag(top_next_path, method: :get) do  %>
-            <div class="col">
-                <%= text_field_tag :search, @search, class: "", placeholder: "キーワードを入力してください"%>
+        <div class="row justify-content-center">
+            <div class="col-sm-4">
+                <p>みんなのポートフォリオを見てみよう!</p>
             </div>
-            <%= select_tag("category_id", options_for_select(Category.change_order), class: "mr-3")%>
-            <%= button_tag type: 'submit', class: '' do %>
-                <i class="fa fa-search"></i>検索
-            <% end %>
+        </div>
+        <%= form_tag(top_next_path, method: :get) do  %>
+            <div class="row">
+                <div class="col-sm-3 text-right align-self-center offset-1">
+                    <%= select_tag("category_id", options_for_select(Category.change_order), class: "form-control")%>
+                </div>
+                <div class="col-sm-6">
+                    <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
+                </div>
+                <div class="col">
+                    <%= button_tag type: 'submit', class: 'btn btn-info' do %>
+                        <i class="fa fa-search"></i>検索
+                    <% end %>
+                </div>
+            </div>
+            <%#= select_tag("category_id", options_for_select(Category.change_order), class: "")%>
+            <%#= text_field_tag :search, @search, class: "", placeholder: "キーワードを入力してください"%>
+            <%#= button_tag type: 'submit', class: '' do %>
+                <!--i class="fa fa-search"></i>検索-->
+            <%# end %>
         <% end %>
     </div>
     <div class="top-main-bottom mt-5">
         <div class="row justify-content-center">
-            <!--<div class="col-md-4">
-            </div>-->
-            <div class="col-md-4 align-self-center text-center">
-                みんなはどんなポートフォリオ<br>
+            <div class="col-sm-4 align-self-center text-center offset-4">
+                <p>みんなはどんなポートフォリオ<br>
                 作ってるんだろう？<br>
-                レベル感が知りたい
+                レベル感が知りたい</p>
             </div>
-            <div class="col-md-4">
-                <%= image_tag 'women.png', size: '150x200'%>
+            <div class="col-sm-4">
+                <%= image_tag 'women.png', size: '150x210'%>
             </div>
         </div>
     </div>

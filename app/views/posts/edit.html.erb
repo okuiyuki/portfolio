@@ -1,21 +1,36 @@
 <%= form_with(model: @post, local: true) do |f| %>
     <%= render "shared/error_messages", object: f.object%>
+    <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title%>
+    <%= f.text_field :title, class: "form-control"%>
+    </div>
 
-    <%= f.select :category_id, Category.all.map { |o| [o.name, o.id]}%>
+    <div class="form-group">
+        <%= f.label :category_id, "カテゴリ", class: "mt-4"%>
+        <%= f.select :category_id, Category.all.map { |o| [o.name, o.id]}, class: "form-control"%>
+    </div>
 
-    <%= f.label :discription %>
-    <%= f.text_area :discription %>
+    <div class="form-group mb-4 mt-4">
+        <%= f.label :discription %>
+        <%= f.text_area :discription, class: "form-control form-control-lg", row: "20" %>
+    </div>
 
-    <%= f.label :images, 'イメージ画像' %>
-    <%= f.file_field :images, multiple: true %>
+    <div class="form-group mt-5">
+        <%= f.label :images, 'イメージ画像' %>
+        <%= f.file_field :images, multiple: true, class: "form-control-file" %>
+    </div>
 
-    <%= f.label :github_url %>
-    <%= f.url_field :github_url %>
+    <div class="form-group mt-4">
+        <%= f.label :github_url %>
+    <%= f.url_field :github_url, class: "form-control" %>
+    </div>
 
-    <%= f.label :app_url %>
-    <%= f.url_field :app_url%>
+    <div class="form-group mt-4">
+        <%= f.label :app_url %>
+        <%= f.url_field :app_url, class: "form-control"%>
+    </div>
 
-    <%= f.submit '更新'%>
+    <div class="form-group mt-5">
+        <%= f.submit '更新', class: "btn btn-primary form-control"%>
+    </div>
 <% end %>

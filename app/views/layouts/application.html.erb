@@ -18,9 +18,11 @@
         <%= message %>
       </div>
     <% end %>
-    <div class='container mt-5'>
-      <%= yield %>
+    <div id="wrapper">
+      <div class='container mt-5'>
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer'%>
     </div>
-    <%= render 'layouts/footer'%>
   </body>
 </html>

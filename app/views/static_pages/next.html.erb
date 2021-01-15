@@ -5,7 +5,7 @@
         <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
     </div>
     <%= select_tag("category_id", options_for_select(Category.change_order, selected: @category_id), class: "mr-3")%>
-    <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
+    <%= button_tag type: 'submit', class: 'btn btn-info' do %>
         <i class="fa fa-search"></i>検索
     <% end %>
 <% end %>
