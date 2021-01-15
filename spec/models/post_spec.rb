@@ -6,7 +6,11 @@ RSpec.describe Post, type: :model do
         @post = FactoryBot.create(:post)
     end
 
-    it "title,discription,category_id,user_idがあれば有効" do
+    it '全ての値があるとき有効' do
+        expect(@post).to be_valid
+    end
+    
+    it "app_url, github_urlがなくても有効" do
         @post.app_url = ""
         @post.github_url = ""
         expect(@post).to be_valid

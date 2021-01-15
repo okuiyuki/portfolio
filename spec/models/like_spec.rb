@@ -8,6 +8,16 @@ RSpec.describe Like, type: :model do
         it 'post_id, user_idがあれば有効' do
             expect(@like).to be_valid
         end
+
+        it 'post_idが同じでもuser_idが違えば有効' do
+            user2 = FactoryBot.create(:user)
+            expect(Like.create(user_id: user2.id, post_id: @like.post_id)).to be_valid
+        end
+
+        it 'user_idが同じでもpost_idが違えば有効' do
+            post2 = FactoryBot.create(:post)
+            expect(Like.create(user_id: @like.user_id, post_id: post2.id)).to be_valid
+        end
     end
 
     context '異常値の確認' do
