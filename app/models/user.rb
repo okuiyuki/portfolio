@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :likes, dependent: :destroy
+    has_many :liked_posts, through: :likes, source: :post
     has_many :active_notifications, class_name: 'Notification', foreign_key: 'visiter_id', dependent: :destroy
     has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
     attr_accessor :remember_token

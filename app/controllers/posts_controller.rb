@@ -46,6 +46,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def index
+    @posts = Post.includes(:liked_users).sort { |a,b| b.liked_users.size <=> a.liked_users.size }
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(5)
+  end
+
   private
 
   def post_params

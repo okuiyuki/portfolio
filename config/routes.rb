@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
-  get 'posts/new'
+  #get 'contacts/new'
+  #get 'posts/new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
