@@ -1,5 +1,8 @@
 <%# プロフィール画像　%>
 <%= image_tag @user.image, size: '100x100', class: "rounded-circle" %>
+<%= link_to edit_user_path do %>
+    <i class="fa fa-cog fa-2x"></i>
+<% end%>
 
 <p class="mb-0">名前</p>
 <%= @user.name %>
@@ -7,6 +10,10 @@
 <%= @user.email %>
 
 <h3 class="pt-3 pb-3">投稿したポートフォリオ一覧</h2>
+
 <% if @user.posts.any? %>
     <%= render @posts %>
+<% else %>
+    <p>まだポートフォリオを投稿していません</p>
+    <%= link_to '早速投稿してみる', new_post_path %>
 <% end %>
