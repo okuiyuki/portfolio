@@ -190,6 +190,7 @@ textarea:focus {
     border-radius: 50%;
     background: #13B1C0;
     color: white;
+    font-weight: 900;
     text-align:center;
     line-height: 80px;
     margin: auto;
@@ -207,10 +208,10 @@ textarea:focus {
     width: 400px;
     height: 400px;
     margin: auto;
-    margin-top: 0px;
     margin-bottom: -80px;
 }
 
 .discription-first,.discription-second, .discription-third{
     margin-bottom: 60px;
+    
 }
