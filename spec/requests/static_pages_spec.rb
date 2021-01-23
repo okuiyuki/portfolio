@@ -13,7 +13,7 @@ RSpec.describe "StaticPages", type: :request do
     end
   end
 
-  desicribe 'GET /top_next' do
+  describe 'GET /top_next' do
     it 'successを返す' do
       get top_next_path
       expect(response).to have_http_status(:success)
