@@ -35,6 +35,8 @@ services:
     volumes:
       - public-data:/myapp/public
       - tmp-data:/myapp/tmp
+    environment:
+      - SERVER_NAME=${SERVER_NAME}
     ports:
       - 80:80
     depends_on:
