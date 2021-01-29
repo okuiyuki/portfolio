@@ -184,3 +184,33 @@ textarea:focus {
 }
 
 /* トップページ　*/
+.discription-first-num,.discription-second-num,.discription-third-num{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #13B1C0;
+    color: white;
+    text-align:center;
+    line-height: 80px;
+    margin: auto;
+}
+
+.discription-first-image,.discription-second-image{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top: -80px;
+    margin-bottom: -80px;
+}
+
+.discription-third-image{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: -80px;
+}
+
+.discription-first,.discription-second, .discription-third{
+    margin-bottom: 60px;
+}

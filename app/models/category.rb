@@ -4,7 +4,7 @@ class Category < ApplicationRecord
     
     def self.change_order
         @categories = Category.all.map { |o| [o.name, o.id]}
-        @categories[3] = ["---選択してください---",""]
+        @categories[3] = ["---カテゴリ---",""]
         @categories.reverse!
     end
 end

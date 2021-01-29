@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get 'top_next', to: 'static_pages#next'
-  get '/users', to: 'users#new' 
+  get '/top_next', to: 'static_pages#next'
+  get '/users', to: 'users#new'
+  get '/gest_user', to: 'sessions#gest_user'
   root 'static_pages#home'
   
 
