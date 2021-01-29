@@ -79,28 +79,28 @@
 -->
 <% i = 0 %>
 <div id="example-2" class="carousel slide" data-ride="carousel" style="width:100%, heiht:100%">
-  <div class="carousel-inner">
-    <% @post.images.each do |image| %>
-        <% if i == 0 %>
-        <div class="carousel-item active">
-            <%= image_tag(image) %>
-        </div>
-        <% else %>
-        <div class="carousel-item">
-            <%= image_tag(image) %>
-        </div>
+    <div class="carousel-inner">
+        <% @post.images.each do |image| %>
+            <% if i == 0 %>
+            <div class="carousel-item active">
+                <%= image_tag(image) %>
+            </div>
+            <% else %>
+            <div class="carousel-item">
+                <%= image_tag(image) %>
+            </div>
+            <% end %>
+            <% i += 1 %>
         <% end %>
-        <% i += 1 %>
-    <% end %>
-    <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+        <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
 
 
@@ -156,6 +156,12 @@
                 <%= image_tag comment.user.image, size: '40x40' %>
                 <%= comment.user.name%>
             </div>
+            <% if current_user %>
+                <% if current_user == comment.user %>
+                    <%= link_to '削除', post_comment_path(comment.post.id, comment.id ), method: :delete %>
+                    <%= link_to '編集', edit_post_comment_path(comment.post.id, comment.id)%>
+                <% end %>
+            <% end %>
         </div>
         <div class="pl-5 mb-5 border border-info rounded-lg">
             <%= safe_join(comment.body.split("\n"), tag(:br)) %>

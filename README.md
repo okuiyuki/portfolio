@@ -26,7 +26,7 @@ web系エンジニアを目指す初学者が自分の作品を披露でき、�
 ## 機能一覧
 ・新規登録、ログイン機能、ユーザー編集機能<br>
 ・ポートフォリオ投稿機能、一覧、削除、編集機能<br>
-・ツイッターシェア機能<br>
+・ツイッターシェア機能(OGPの設定済み)<br>
 ・コメント投稿、削除機能<br>
 ・カテゴリ機能<br>
 ・フリーワード検索機能（同時にカテゴリの絞り込み可）<br>
@@ -46,7 +46,7 @@ web系エンジニアを目指す初学者が自分の作品を披露でき、�
  HTML,CSS,Bootstrap
  Docker<br>
  Git GitHub(project issue活用) <br>
- AWS(EC2,RDS,ALD)<br>
+ AWS(EC2,RDS,ALB,S3)<br>
  Rspec<br>
  Puma<br>
  VScode<br>

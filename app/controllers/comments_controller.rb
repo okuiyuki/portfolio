@@ -25,6 +25,21 @@ class CommentsController < ApplicationController
         end
     end
 
+    def edit
+        @comment = current_user.comments.find(params[:id])
+        @post = @comment.post
+    end
+
+    def update
+        @comment = current_user.comments.find(params[:id])
+        if @comment.update(comment_params)
+            flash[:success] = "コメントを更新しました"
+            redirect_to post_path(@comment.post.id)
+        else
+            render 'edit'
+        end
+    end
+
     def comment_params
         params.require(:comment).permit(:body, :post_id)
     end

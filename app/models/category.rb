@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
     has_many :posts
+    validates :name, presence: true
 
     
     def self.change_order
