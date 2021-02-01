@@ -10,7 +10,16 @@
               <li class="nav-item"><%= link_to '検索' , top_next_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to '新規投稿' , new_post_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to 'ユーザー' , user_path(current_user), class: "nav-link" %></li>
-              <li class="nav-item"><%= link_to '通知', notifications_path, class: "nav-link"%>
+              <li class="nav-item">
+                  <% if unchecked_notifications.any?%>
+                    <%= link_to notifications_path, class: "nav-link" do %>
+                      <span>通知</span>
+                      <i class="fa fa-circle new-notification-color"></i>
+                    <% end %>
+                  <%else%>
+                    <%= link_to '通知', notifications_path, class: "nav-link"%>
+                  <% end %>
+              </li>
               <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %></li>
           <% else %>
               <li class="nav-item"><%= link_to 'ゲストログイン', gest_user_path, class: "nav-link" %></li>

@@ -62,6 +62,13 @@ strong {
     color: #13B1C0;
 }
 
+.new-notification-color{
+    color: orange ;
+    position: relative;
+    bottom: 8px;
+    right: 7px;
+}
+
 /*　ページネーション自体のスタイル　*/
 .pagination>li>a {
     border: none;
@@ -178,6 +185,10 @@ textarea:focus {
     }
 }
 
+.user-name{
+    color: black;
+}
+
 /* top_next */
 .back-color{
     background-color: #dffcff;
@@ -214,4 +225,58 @@ textarea:focus {
 .discription-first,.discription-second, .discription-third{
     margin-bottom: 60px;
     
+}
+
+/* users/show */
+.set-text{
+    font-size: 1.5em;
+}
+
+.user-name{
+    font-size: 1.5em;
+}
+
+/* static_pages/next */
+.link_to_color{
+        color:black;
+}
+
+/* いいねのボタンの色　*/
+.like-btn{
+    width: 25px;
+    height: 30px;
+    font-size: 25px;
+    color: #808080; 
+    margin-left: 10px;
+}
+
+.unlike-btn{
+    width: 25px;
+    height: 30px;
+    font-size: 25px;
+    color: #e54747;
+    margin-left: 10px;
+}
+
+.like-text{
+    display: inline-block;
+    width: 120px;
+    font-size: 25px;
+    background-color: rgb(243, 118, 237);
+    color: white;
+    border-radius: 1em;
+}
+
+.like-count{
+    font-size: 25px;
+}
+
+/* twitter_link */
+.twitter-link{
+    width: 190px;
+    display: inline-block;
+    font-size: 25px;
+    background-color: rgb(0, 153, 255);
+    color: white;
+    border-radius: 1em;
 }

@@ -1,13 +1,22 @@
 <%# プロフィール画像　%>
-<%= image_tag @user.image, size: '100x100', class: "rounded-circle" %>
-<%= link_to edit_user_path do %>
-    <i class="fa fa-cog fa-2x"></i>
-<% end%>
+<div class="row">
+    <div class="col-sm-1">
+        <%= image_tag @user.image, size: '100x100', class: "rounded-circle" %>
+    </div>
+    <div class="col m-auto pl-5">
+        <div class="user-name">
+            <%= @user.name %>
+        </div>
+    </div>
+    <% if current_user == @user %>
+    <div class="col m-auto text-right">
+        <%= link_to edit_user_path do %>
+            <span class="set-text">設定</span><i class="fa fa-cog fa-2x"></i>
+        <% end%>
+    </div>
+    <% end %>
+</div>
 
-<p class="mb-0">名前</p>
-<%= @user.name %>
-<p class="mb-0">メールアドレス</p>
-<%= @user.email %>
 
 <h3 class="pt-3 pb-3">投稿したポートフォリオ一覧</h2>
 

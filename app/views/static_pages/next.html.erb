@@ -11,28 +11,7 @@
 <% end %>
 
 <p class="h2 mb-5 mt-5">投稿一覧</p>
-<!--
-<% @posts.each do |post| %>
-    <div class="card mb-5">
-        <div class="card-img-top">
-            <% if post.images.attached? %>
-                <% image = post.images[0] %>
-                <%= image_tag image, width: '100%', height: '100%'  %>
-            <% end %>
-        </div>　
-        <%= link_to post_path(post) do %>
-            <div class="card-body">
-                <h5 class="card-title"><%= post.title %></h5>
-                <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle' %>
-                <%= post.user.name %>
-                <%= string_extraction_limit(post.discription, 200 )%>
-                <%#= safe_join(post.discription.split("\n"), tag(:br))%>
-                
-            </div>
-        <% end %>
-    </div>
-<% end %>
--->
+
 <%= render @posts %>
 <%= paginate @posts %>
 

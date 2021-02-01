@@ -3,12 +3,12 @@
 <div class="row border-bottom-5">
     <div class="col">
         <%= link_to user_path(@post.user) do %>
-            <%= image_tag @post.user.image, size: '40x40', class: 'rounded-circle mr-3'%>
-            <%= @post.user.name %>
+            <%= image_tag @post.user.image, size: '80x80', class: 'rounded-circle mr-3'%>
+            <span class="user-name"><%= @post.user.name %></span>
         <% end %>
     </div>
 
-    <div class="col text-right my-auto">
+    <div class="col text-right m-auto">
         <% if current_user?(@user) %>
             <%= link_to edit_post_path(@post), class:"mr-2" do %>
                 <i class="fa fa-edit edit"></i>
@@ -67,16 +67,6 @@
         <p class="h3">イメージ</p>
     </div>
 </div>
-
-<!--
-<% if @post.images.attached? %>
-    <% @post.images.each do |image| %>
-            <div>
-            <%= image_tag(image, width:'80%', height: '80%') %>
-            </div>
-    <% end %>
-<% end %>
--->
 <% i = 0 %>
 <div id="example-2" class="carousel slide" data-ride="carousel" style="width:100%, heiht:100%">
     <div class="carousel-inner">
@@ -103,63 +93,61 @@
     </div>
 </div>
 
-
 <%# いいね %>
 <% if logged_in?%>
-    <div clsss="row">
-        <div class="col-md-6">
+    <div class="row mt-4 mb-5">
+        <div class="col-sm-3 offset-sm-2 text-center">
             <div id="likes_buttons">
                 <%= render partial: 'likes/like', locals: { post: @post } %>
             </div>
         </div>
-        <div class="col-md-6">
-            <%= link_to "https://twitter.com/intent/tweet?url=#{ request.url }&text=#{@user.name}の#{@post.title}を見てみる" do %>
-                Twitterでシェア
-                <%= fa_icon("twitter")%>
+        <div class="col-sm-2 offset-sm-2 text-center">
+            <%= link_to "https://twitter.com/intent/tweet?url=#{ request.url }&text=#{@user.name}の#{@post.title}を見てみる", class: "twitter-link" do %>
+                <%= fa_icon("twitter")%>Tweet
             <% end%>
         </div>
     </div>
 <% end %>
 
-
-
-<div class="row ">
+<%# コメントフォーム%>
+<div class="row pl-2">
     <div class="col-md-3">
         <p class="h3 mt-3 mb-4">コメント</p>
     </div>
 </div>
-
-<%# コメントフォーム%>
 <% if logged_in? %>
-    <%= form_with(model: [@post, @comment], method: :post ) do |f| %>
+    <%= form_with(model: [@post, @comment], method: :post, class:"mb-4" ) do |f| %>
 
-    
-    <%= f.text_area :body, placeholder: "コメントする", class: "form" %>
+        <div class="comment-area">
+            <%= f.text_area :body, placeholder: "コメントする", class: "form" %>
+        </div>
 
-    <%= f.hidden_field :post_id, value: @post.id %>
-    <div class="row">
-        <div class="col-sm-3 ml-5 text-right">
-            <%= f.submit "投稿", class: "comment-btn"%>
-        </div>    
-    </div>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <div class="row">
+            <div class="col-sm-3 ml-5 text-right">
+                <%= f.submit "投稿", class: "comment-btn"%>
+            </div>    
+        </div>
     <% end %>
 <% else %>
     <p>ログインしてコメントする</p>
 <% end %>
 
 <%# コメント一覧　%>
-
-
 <% @comments.each do |comment|%>
         <div class="row">
-            <div class="col">
+            <div class="col m-1">
                 <%= image_tag comment.user.image, size: '40x40' %>
                 <%= comment.user.name%>
             </div>
             <% if current_user %>
-                <% if current_user == comment.user %>
-                    <%= link_to '削除', post_comment_path(comment.post.id, comment.id ), method: :delete %>
-                    <%= link_to '編集', edit_post_comment_path(comment.post.id, comment.id)%>
+                <% if current_user?(comment.user) %>
+                    <%= link_to edit_post_comment_path(@post.id, comment.id), class: "mr-2" do %>
+                        <i class="fa fa-edit edit"></i>
+                    <% end %>
+                    <%= link_to post_comment_path(@post.id, comment.id ), method: :delete, data: { confirm: "このコメントを削除しますか？" }, class: "mr-4"  do %>
+                        <i class="fa fa-trash trash"></i>
+                    <% end %>
                 <% end %>
             <% end %>
         </div>

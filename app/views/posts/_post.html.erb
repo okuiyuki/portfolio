@@ -5,13 +5,13 @@
             <%= image_tag image, width: '100%', height: '100%' %>
         <% end %>
     </div>　
-    <%= link_to post_path(post) do %>
+    <%= link_to post_path(post), class: "link_to_color" do %>
         <div class="card-body">
             <h5 class="card-title"><%= post.title %></h5>
             <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle', class: "mr-3" %>
             <%= post.user.name %>
-            <div>
-            <%= string_extraction_limit(post.discription, 200 )%>
+            <div class="mt-2 ml-3">
+                <%= string_extraction_limit(post.discription, 200 )%>
             </div>
         </div>
     <% end %>
