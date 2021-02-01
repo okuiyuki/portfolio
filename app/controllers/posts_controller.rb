@@ -37,9 +37,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(images_attachments: :blob).find(params[:id])
     @user = @post.user
-    @comments = @post.comments
+    @comments = @post.comments.includes(user: {image_attachment: :blob})
     @like = Like.new
     if logged_in?
     @comment = current_user.comments.new
