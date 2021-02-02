@@ -10,7 +10,7 @@
             <h5 class="card-title"><%= post.title %></h5>
             <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle', class: "mr-3" %>
             <%= post.user.name %>
-            <div class="mt-2 ml-3">
+            <div class="mt-2 portfolio-discription">
                 <%= string_extraction_limit(post.discription, 200 )%>
             </div>
         </div>
