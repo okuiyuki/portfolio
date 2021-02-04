@@ -46,7 +46,7 @@ a:hover{
     
 }
 
-strong {
+.logo-text {
     color: #13B1C0;
 }
 
@@ -132,6 +132,13 @@ footer{
     }
 }
 
+.heading-text{
+    text-align: center;
+    background-color: #4fc3ce;
+    color: white;
+    border-radius: 1em;
+}
+
 .col-md-3{
     padding-left: 0px;
 }
@@ -200,6 +207,23 @@ textarea:focus {
 }
 
 /* トップページ　*/
+.present-text{
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-top: 20px;
+}
+
+.top-main-search-heading-text{
+    font-size: 1.4em;
+    color: white;
+    background-color: rgb(154, 232, 235);
+    border-radius: 1em;
+    .text-border{
+        text-decoration: underline wavy rgb(241, 200, 124);
+    }
+}
+
+
 .discription-first-num,.discription-second-num,.discription-third-num{
     width: 80px;
     height: 80px;
@@ -229,9 +253,18 @@ textarea:focus {
 
 .discription-first,.discription-second, .discription-third{
     margin-bottom: 60px;
-    
 }
 
+.top-main-bottom-text, .top-main-top-text{
+    color: rgb(110, 110, 110);
+    font-size: 1.3em;
+}
+
+.discription-first-text, .discription-second-text, .discription-third-text{
+    color: rgb(110, 110, 110);
+    font-size: 1.1em;
+    line-height: 2.2;
+}
 /* users/show */
 .set-text{
     font-size: 1.5em;

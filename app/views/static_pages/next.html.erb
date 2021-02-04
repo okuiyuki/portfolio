@@ -1,5 +1,9 @@
 
-<p class="h2 mb-4">検索</p>
+<div class="row">
+    <div class="col-sm-3">
+        <p class="h2 mb-4 heading-text">検索</p>
+    </div>
+</div>
 <%= form_tag(top_next_path, method: :get, class: "row") do  %>
     <div class="col">
         <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
@@ -9,8 +13,11 @@
         <i class="fa fa-search"></i>検索
     <% end %>
 <% end %>
-
-<p class="h2 mb-5 mt-5">投稿一覧</p>
+<div class="row">
+    <div class="col-sm-3">
+        <p class="h2 mb-5 mt-5 heading-text">投稿一覧</p>
+    </div>
+</div>
 
 <%= render @posts %>
 <%= paginate @posts %>
