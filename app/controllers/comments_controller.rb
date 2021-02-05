@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+    before_action :set_comment, only: [:destroy, :edit, :update]
     def create
         @comment = current_user.comments.new(comment_params)
         @post = @comment.post
@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
 
 
     def destroy
-        @comment = current_user.comments.find(params[:id])
         if @comment.destroy
             flash[:success]  = "コメントを削除しました"
             redirect_to post_path(@comment.post.id)
@@ -26,12 +25,10 @@ class CommentsController < ApplicationController
     end
 
     def edit
-        @comment = current_user.comments.find(params[:id])
         @post = @comment.post
     end
 
     def update
-        @comment = current_user.comments.find(params[:id])
         if @comment.update(comment_params)
             flash[:success] = "コメントを更新しました"
             redirect_to post_path(@comment.post.id)
