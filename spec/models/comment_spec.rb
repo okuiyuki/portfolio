@@ -2,20 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
     before do
-        @user = FactoryBot.create(:user, id:1)
-        Category.create(id: 1, name: "フロントエンド")
-        @post = @user.posts.create(
-            id: 1,
-            title: "test",
-            discription: "testdiscription",
-            user_id: 1,
-            category_id: 1
-        )
-        @comment = Comment.new(
-            body: "いいね！",
-            user_id: @user.id,
-            post_id: @post.id
-        )
+        @comment = FactoryBot.create(:comment)
     end
 
 

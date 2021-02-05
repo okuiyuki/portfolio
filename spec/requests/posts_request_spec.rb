@@ -41,6 +41,10 @@ RSpec.describe "Posts", type: :request do
     end
 
     describe 'GET /posts/:id' do
+      before do
+        post1.user.image.attach(io: File.open('app/assets/images/user_default.png'), filename: 'user_default.png')
+      end
+
       it "successを返す" do
         get post_path(post1.id)
         expect(response).to have_http_status(:success)
