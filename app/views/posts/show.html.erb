@@ -110,21 +110,21 @@
 <% end %>
 
 <%# コメントフォーム%>
-<div class="row pl-2">
-    <div class="col-md-3">
-        <p class="h3 mt-3 mb-4">コメント</p>
+<div class="row pl-2 justify-content-center">
+    <div class="col-sm-3">
+        <p class="h3 mt-3 mb-4 heading-text">コメント</p>
     </div>
 </div>
 <% if logged_in? %>
-    <%= form_with(model: [@post, @comment], method: :post, class:"mb-4" ) do |f| %>
+    <%= form_with(model: [@post, @comment], method: :post, local: :true, class:"mb-4" ) do |f| %>
 
         <div class="comment-area">
             <%= f.text_area :body, placeholder: "コメントする", class: "form" %>
         </div>
 
         <%= f.hidden_field :post_id, value: @post.id %>
-        <div class="row">
-            <div class="col-sm-3 ml-5 text-right">
+        <div class="row mt-2">
+            <div class="col-sm-7 ml-5 text-right">
                 <%= f.submit "投稿", class: "comment-btn"%>
             </div>    
         </div>
