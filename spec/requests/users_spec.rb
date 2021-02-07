@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-    describe 'GET /users/new' do
-
+    describe 'GET #new' do
         it 'successを返す' do
             get new_user_path
             expect(response).to have_http_status(:success)
@@ -12,17 +11,16 @@ RSpec.describe "Users", type: :request do
             get new_user_path
             expect(response.status).to eq 200
         end
-
     end
 
-    describe 'POST /users' do
-
+    describe 'POST #create' do
         context 'パラメーターが妥当' do
-            it 'リクエストが成功' do
+            it 'リクエストが成功しリダイレクト' do
                 post users_path, params: { user: FactoryBot.attributes_for(:user) }
                 expect(response).to have_http_status(302)
             end
         end
+
         context 'パラメーターが異常' do
             it 'エラーメッセージの表示(email)' do
                 post users_path, params: { user: FactoryBot.attributes_for(:user, email: "") }
@@ -51,7 +49,64 @@ RSpec.describe "Users", type: :request do
         end
     end
 
+    context 'ログインしていない場合' do
+        before do
+            @user = FactoryBot.create(:user)
+            @user.image.attach(io: File.open('app/assets/images/user_default.png'), filename: 'user_default.png')
+        end
 
-    describe '' do
+        describe 'GET #show' do
+            it 'successを返す' do
+                get user_path(@user.id)
+                expect(response).to have_http_status(:success)
+            end
+    
+            it 'レスポンスが200,okを返す' do
+                get user_path(@user.id)
+                expect(response.status).to eq 200
+            end
+        end
+    
+        describe 'GET #edit' do
+            it 'ログイン画面へリダイレクト' do
+                get edit_user_path(@user.id)
+                expect(response).to redirect_to login_url
+            end
+        end
+
+        describe 'PATCH #update' do
+            it 'ログイン画面へリダイレクト' do
+                patch user_path(@user.id), params: { user: FactoryBot.attributes_for(:user) }
+                expect(response).to redirect_to login_url
+            end
+        end
     end
+
+    context 'ログインしている場合' do
+        before do
+            @user = FactoryBot.create(:user)
+            @user.image.attach(io: File.open('app/assets/images/user_default.png'), filename: 'user_default.png')
+            post login_path, params: { session: FactoryBot.attributes_for(:user, email: @user.email) }
+        end
+        
+        describe 'GET #edit' do
+            it 'succsessを返す' do
+                get edit_user_path(@user.id)
+                expect(response).to have_http_status(:success)
+            end
+
+            it 'レスポンスが200,okを返す' do
+                get edit_user_path(@user.id)
+                expect(response.status).to eq 200
+            end
+        end
+
+        describe 'PATCH #update' do
+            it 'successを返す' do
+                patch user_path(@user.id), params: { user: FactoryBot.attributes_for(:user) }
+                expect(response).to redirect_to @user
+            end
+        end
+    end
+    
 end

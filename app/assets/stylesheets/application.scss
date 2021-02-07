@@ -178,6 +178,10 @@ textarea:focus {
     outline: 0;
 }
 
+.comment-area{
+    text-align: center;
+}
+
 .comment-btn{
     background-color: #4fc3ce;
     border: none;
@@ -211,6 +215,10 @@ textarea:focus {
     font-size: 1.5em;
     font-weight: 900;
     margin-top: 20px;
+}
+
+.round{
+    border-radius: 1.3em;
 }
 
 .top-main-search-heading-text{
