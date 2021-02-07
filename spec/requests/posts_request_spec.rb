@@ -55,9 +55,6 @@ RSpec.describe "Posts", type: :request do
           expect(response.status).to eq 200
       end
     end
-
-
-
   end
 
   context 'ログインしている場合' do

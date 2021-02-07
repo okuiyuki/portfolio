@@ -20,12 +20,13 @@ web系エンジニアを目指す初学者が自分の作品を披露でき、�
 
 2. 運用、保守のことも考えお問い合わせフォームを実装しユーザーからのフィードバックを受け取れるように設計したこと。<br><br>
 
-3. 機能を実装していく上で本当に必要な物だけを実装したこと。<br><br>
+3. ユーザーのストレスを減らすため検索がどのような条件でも可能な設計にした<br><br>
 
 
 ## 機能一覧
 ・新規登録、ログイン機能、ユーザー編集機能<br>
-・ポートフォリオ投稿機能、一覧、削除、編集機能<br>
+・ゲストユーザーログイン機能<br>
+・ポートフォリオ投稿、一覧、削除、編集機能<br>
 ・ツイッターシェア機能(OGPの設定済み)<br>
 ・コメント投稿、削除機能<br>
 ・カテゴリ機能<br>
@@ -37,16 +38,18 @@ web系エンジニアを目指す初学者が自分の作品を披露でき、�
 
 
 
+
 ### 使用技術
  Ruby 2.6.6<br>
  Rails 6.0.3.4<br>
  Mysql<br>
  JavaScript<br>
  jQuery<br>
- HTML,CSS,Bootstrap
- Docker<br>
+ HTML,SCSS,Bootstrap
+ Docker,DockerCompose<br>
  Git GitHub(project issue活用) <br>
  AWS(EC2,RDS,ALB,S3)<br>
+ Nginx<br>
  Rspec<br>
  Puma<br>
  VScode<br>
