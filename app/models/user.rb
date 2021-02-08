@@ -35,6 +35,7 @@ class User < ApplicationRecord
     #渡された文字列がremember_digestと一致するか？
     def authenticated?(remember_token)
         return false if remember_digest.nil?
+
         BCrypt::Password.new(remember_digest).is_password?(remember_token)
     end
 
@@ -46,6 +47,7 @@ class User < ApplicationRecord
     #画像の検証
     def image_size
         return unless image.attached?
+        
         if image.blob.byte_size > 10.megabytes
             image = nil
             errors.add(:image, "10MB以下にしてください")

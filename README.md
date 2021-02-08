@@ -52,6 +52,8 @@ web系エンジニアを目指す初学者が自分の作品を披露でき、�
 ### 使用技術
  Ruby 2.6.6<br>
  Rails 6.0.3.4<br>
+ Rspec<br>
+ rubocop<br>
  Mysql<br>
  JavaScript<br>
  jQuery<br>

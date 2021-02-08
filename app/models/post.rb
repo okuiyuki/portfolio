@@ -6,18 +6,13 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :discription, presence: true
   default_scope -> { order(created_at: :desc)}
-
   has_many_attached :images
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
-
-
-
   #いいねの通知作成
   def create_notification_like!(current_user)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and post_id = ? and action = ?", current_user.id, user_id, id, "like"])
-
     if temp.blank?
       notification = Notification.new(
         post_id: id,
@@ -31,7 +26,6 @@ class Post < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
 
   #コメントの通知作成
   def create_notification_comment!(current_user, comment_id)
