@@ -4,7 +4,6 @@ class StaticPagesController < ApplicationController
 
   def next
       count_in_page = 5
-
     if (params[:search] == "") && (params[:category_id] == "")
       @posts = Post.page(params[:page]).includes(images_attachments: :blob, user: {image_attachment: :blob}).per(count_in_page)
     elsif params[:category_id] == ""
@@ -12,6 +11,7 @@ class StaticPagesController < ApplicationController
       @posts = []
       split_search.each do |search|
         next if search == ""
+
         @posts += Post.where(['discription LIKE ? OR title LIKE ?', "%#{search}%", "%#{search}%"]).includes(images_attachments: :blob, user: {image_attachment: :blob})
       end
       @posts.uniq!
@@ -23,6 +23,7 @@ class StaticPagesController < ApplicationController
       @posts = []
       split_search.each do |search|
         next if search == ""
+        
         @posts += Post.where(['discription LIKE ? OR title LIKE ?', "%#{search}%", "%#{search}%"]).where(category_id: params[:category_id]).includes(images_attachments: :blob, user: {image_attachment: :blob})
       end
       @posts.uniq!
@@ -30,14 +31,10 @@ class StaticPagesController < ApplicationController
     else
       @posts = Post.page(params[:page]).includes(images_attachments: :blob, user: {image_attachment: :blob}).per(count_in_page)
     end
-
     @search = params[:search] if params[:search]
-
     # category = Category.find_by(id: params[:category_id]) if params[:category_id]
     # @category = category.name if params[:categroy_id]
     # @category_id = params[:category_id]
-    if !params[:category_id].blank?
-      @category_id = params[:category_id].to_i
-    end
+    @category_id = params[:category_id].to_i if !params[:category_id].blank?
   end
 end

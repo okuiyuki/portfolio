@@ -35,5 +35,8 @@
 yarn-debug.log*
 .yarn-integrity
 
+.rubocop_todo.yml
+.rubocop.yml
+
 # Ignore environment variable
 .env

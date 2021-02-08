@@ -9,7 +9,7 @@ RSpec.describe Category, type: :model do
 		it "bodyがあれば有効" do
 			expect(@category).to be_valid
 		end
-    end
+  end
 	
 	context '異常値の確認' do
 		it "bodyが無ければ無効" do

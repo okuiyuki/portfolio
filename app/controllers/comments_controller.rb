@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
         end
     end
 
-
     def destroy
         if @comment.destroy
             flash[:success]  = "コメントを削除しました"
