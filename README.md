@@ -62,7 +62,7 @@ web系エンジニアを目指す初学者が自分の作品を披露でき、�
  Git GitHub(project issue活用) <br>
  AWS(EC2,RDS,ALB,S3)<br>
  Nginx<br>
- Rspec<br>
+ Rspec(単体テスト100以上)<br>
  Puma<br>
  VScode<br>
 

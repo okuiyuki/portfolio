@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :notifications, only: :index
   resources :users
   resources :posts do
-    resources :comments
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
   
 
