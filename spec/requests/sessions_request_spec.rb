@@ -35,7 +35,7 @@ RSpec.describe "Sessions", type: :request do
     end
 
     describe 'DELETE #destroy' do
-        it 'ログアウト' do
+        it 'ログアウト成功' do
             post login_path, params: { session: FactoryBot.attributes_for(:user, email: @user.email) }
             delete logout_path
             expect(response).to redirect_to root_path
