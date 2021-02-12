@@ -14,7 +14,7 @@ RSpec.describe 'StaticPages', type: :request do
 
     it 'homeテンプレートが表示される' do
       get root_path
-      expect(response.body).to include "新規登録"
+      expect(response.body).to include '新規登録'
     end
   end
 
@@ -35,7 +35,7 @@ RSpec.describe 'StaticPages', type: :request do
     end
 
     it 'top_nextテンプレートが表示される(search: "search", category_id: nil)' do
-      get top_next_path params: { search: "search" }
+      get top_next_path params: { search: 'search' }
       expect(response.body).to include '投稿一覧'
     end
 
@@ -45,7 +45,7 @@ RSpec.describe 'StaticPages', type: :request do
     end
 
     it 'top_nextテンプレートが表示される(search: "search", category_id: 1)' do
-      get top_next_path params: { search: "search", category_id: 1 }
+      get top_next_path params: { search: 'search', category_id: 1 }
       expect(response.body).to include '投稿一覧'
     end
   end
