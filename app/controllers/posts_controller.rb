@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_post, only: [:destroy, :edit, :update]
+  before_action :logged_in_user, only: %i[new create edit update destroy]
+  before_action :set_post, only: %i[destroy edit update]
   #before_action :correct_user, only: [:edit, :update]
 
   def new
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:success] = "投稿を更新しました"
+      flash[:success] = '投稿を更新しました'
       redirect_to @post
     else
       render 'edit'
@@ -38,15 +38,13 @@ class PostsController < ApplicationController
   def show
     @post = Post.includes(images_attachments: :blob).find(params[:id])
     @user = @post.user
-    @comments = @post.comments.includes(user: {image_attachment: :blob})
+    @comments = @post.comments.includes(user: { image_attachment: :blob })
     @like = Like.new
-    if logged_in?
-    @comment = current_user.comments.new
-    end
+    @comment = current_user.comments.new if logged_in?
   end
 
   def index
-    @posts = Post.includes(:liked_users).sort { |a,b| b.liked_users.size <=> a.liked_users.size }
+    @posts = Post.includes(:liked_users).sort { |a, b| b.liked_users.size <=> a.liked_users.size }
     @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(5)
   end
 
