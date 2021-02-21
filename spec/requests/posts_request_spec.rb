@@ -71,7 +71,7 @@ RSpec.describe 'Posts', type: :request do
 
       describe 'POST #create' do
         it 'postの保存成功' do
-          post posts_path, params: { post: FactoryBot.attributes_for(:post, category_id: @post.category_id) }
+          post posts_path, params: { post: FactoryBot.attributes_for(:post, category_id: @post.category_id, tag_ids: '') }
           expect(response).to redirect_to @user
         end
       end

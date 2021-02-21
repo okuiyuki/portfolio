@@ -16,6 +16,11 @@
         <%= f.select :category_id, Category.all.map { |o| [o.name, o.id]}, class: "form-control"%>
     </div>
 
+    <div class="form-group mt-5">
+        <%= f.label :tag_ids, "タグ" %>
+        <%= f.text_field :tag_ids, value: @tag_list, class: "form-control", placeholder: "複数タグをつける際は`,`で区切ってください"%>
+    </div>
+
     <div class="form-group mb-4 mt-4">
         <%= f.label :discription %>
         <%= f.text_area :discription, class: "form-control form-control-lg", row: "20" %>

@@ -9,7 +9,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    tag_list = params[:post][:tag_ids].split(',')
     if @post.save
+      @post.save_tags(tag_list)
       flash[:success] = '投稿しました'
       redirect_to current_user
     else
@@ -24,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @tag_list = @post.tags.pluck(:tag_name).join(',')
   end
 
   def update
@@ -36,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.includes(images_attachments: :blob).find(params[:id])
+    @post = Post.includes(:tags, images_attachments: :blob).find(params[:id])
     @user = @post.user
     @comments = @post.comments.includes(user: { image_attachment: :blob })
     @like = Like.new

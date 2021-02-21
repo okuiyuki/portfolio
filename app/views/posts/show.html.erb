@@ -21,28 +21,38 @@
 </div>
 
 <div class="row mt-5 mb-2">
-    <div class="col-md-3">
-        <p class="h3">アプリ名</p>
+    <div class="col-sm-3 ">
+        <p class="h3 heading-text">アプリ名</p>
     </div>
 </div>
-
 <div class="title">
     <p><%= @post.title %></p>
 </div>
+<% if @post.tags.present? %>
+    <div class="row mb-3">
+        <div class="col-sm-3">
+            <p class="h3 heading-text">タグ</p>
+        </div>
+    </div>
+    <div class="tag mb-3">
+        <% @post.tags.each do |tag| %>
+            <span class="mr-2"><%= tag.tag_name %></span>
+        <% end %>
+    </div>
+<% end %>
 
 <div class="row mb-2">
-    <div class="col-md-3">
-        <p class="h3">概要</p>
+    <div class="col-sm-3">
+        <p class="h3 heading-text">概要</p>
     </div>
 </div>
-
 <div class="mb-3">
     <%= safe_join(@post.discription.split("\n"), tag(:br)) %>
 </div>
 
 <div class="row mb-3">
-    <div class="col-md-3">
-        <p class="h3">GitHub</p>
+    <div class="col-sm-3">
+        <p class="h3 heading-text">GitHub</p>
     </div>
 </div>
 <div class="mb-3">
@@ -51,11 +61,10 @@
 
 
 <div class="row mb-3">
-    <div class="col-md-3">
-        <p class="h3">App URL</p>
+    <div class="col-sm-3">
+        <p class="h3 heading-text">App URL</p>
     </div>
 </div>
-
 <div class="mb-3">
 <%= link_to @post.app_url, @post.app_url %>
 </div>
@@ -63,8 +72,8 @@
 <%# イメージ画像表示　%>
 
 <div class="row mb-4">
-    <div class="col-md-3">
-        <p class="h3">イメージ</p>
+    <div class="col-sm-3">
+        <p class="h3 heading-text">イメージ</p>
     </div>
 </div>
 <% i = 0 %>
