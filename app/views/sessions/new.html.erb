@@ -1,4 +1,8 @@
-<h2 class="mb-5">ログイン</h2>
+<div class="row justify-content-center">
+    <div class="col-sm-3">
+        <p class="h2 mb-5 heading-text">ログイン</p>
+    </div>
+</div>
 
 <%= form_with(url: login_path, scope: :session, local: true ) do |f| %>
 <div class="form-group">
@@ -16,8 +20,8 @@
     <span class="ml-2">次回から自動ログイン</span>
 <% end %>
 
-<div class="form-group mt-3">
-<%= f.submit 'ログイン', class: "btn btn-info form-control mt-3"%>
+<div class="form-group mt-3 text-center">
+<%= f.submit 'ログイン', class: "btn btn-info mt-3"%>
 </div>
 
 <% end %>
