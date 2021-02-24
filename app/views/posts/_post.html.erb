@@ -7,10 +7,10 @@
     </div>　
     <%= link_to post_path(post), class: "link_to_color" do %>
         <div class="card-body">
-            <h5 class="card-title"><%= post.title %></h5>
-            <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle', class: "mr-3" %>
+            <%= image_tag post.user.image, size: '40x40', class: 'rounded_circle', class: "mr-2 card-title" %>
             <%= post.user.name %>
-            <div class="mt-2 portfolio-discription">
+            <h5 class="card-subtitle mr-60-ml-60 mt-2"><%= post.title %></h5>
+            <div class="mt-2 mr-60-ml-60">
                 <%= string_extraction_limit(post.discription, 200 )%>
             </div>
         </div>

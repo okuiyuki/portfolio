@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-sm-3">
-        <p class="h2 mb-4 heading-text">検索</p>
+        <p class="h2 mb-5 heading-text">検索</p>
     </div>
 </div>
 <%= form_tag(top_next_path, method: :get) do  %>
@@ -14,7 +14,7 @@
             <i class="fa fa-search"></i>検索
         <% end %>
     </div>
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-sm-2 offset-1 text-center mt-4"><p class="tag_label"><strong>タグ</strong></p></div>
         <div class="col-sm-6 mt-4">
             <% if @tag_list %>
@@ -31,7 +31,7 @@
 
 <div class="row">
     <div class="col-sm-3">
-        <p class="h2 mb-5 mt-5 heading-text">投稿一覧</p>
+        <p class="h2 mb-5 mt-5 heading-text">検索結果</p>
     </div>
 </div>
 <% if @posts.present? %>

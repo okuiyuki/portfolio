@@ -50,61 +50,65 @@
     <%= safe_join(@post.discription.split("\n"), tag(:br)) %>
 </div>
 
-<div class="row mb-3">
-    <div class="col-sm-3">
-        <p class="h3 heading-text">GitHub</p>
+<% if @post.github_url.present? %>
+    <div class="row mb-3">
+        <div class="col-sm-3">
+            <p class="h3 heading-text">GitHub</p>
+        </div>
     </div>
-</div>
-<div class="mb-3">
-    <%= link_to @post.github_url, @post.github_url %>
-</div>
-
-
-<div class="row mb-3">
-    <div class="col-sm-3">
-        <p class="h3 heading-text">App URL</p>
+    <div class="mb-3">
+        <%= link_to @post.github_url, @post.github_url %>
     </div>
-</div>
-<div class="mb-3">
-<%= link_to @post.app_url, @post.app_url %>
-</div>
+<% end %>
+
+<% if @post.app_url.present? %>
+    <div class="row mb-3">
+        <div class="col-sm-3">
+            <p class="h3 heading-text">App URL</p>
+        </div>
+    </div>
+    <div class="mb-3">
+        <%= link_to @post.app_url, @post.app_url %>
+    </div>
+<% end %>
 
 <%# イメージ画像表示　%>
-
-<div class="row mb-4">
-    <div class="col-sm-3">
-        <p class="h3 heading-text">イメージ</p>
+<% if @post.images.present? %>
+    <div class="row mb-4">
+        <div class="col-sm-3">
+            <p class="h3 heading-text">イメージ</p>
+        </div>
     </div>
-</div>
-<% i = 0 %>
-<div id="example-2" class="carousel slide" data-ride="carousel" style="width:100%, heiht:100%">
-    <div class="carousel-inner">
-        <% @post.images.each do |image| %>
-            <% if i == 0 %>
-            <div class="carousel-item active">
-                <%= image_tag(image) %>
-            </div>
-            <% else %>
-            <div class="carousel-item">
-                <%= image_tag(image) %>
-            </div>
+    <% i = 0 %>
+    <div id="example-2" class="carousel slide" data-ride="carousel" style="width:100%, heiht:100%">
+        <div class="carousel-inner">
+            <% @post.images.each do |image| %>
+                <% if i == 0 %>
+                <div class="carousel-item active">
+                    <%= image_tag(image) %>
+                </div>
+                <% else %>
+                <div class="carousel-item">
+                    <%= image_tag(image) %>
+                </div>
+                <% end %>
+                <% i += 1 %>
             <% end %>
-            <% i += 1 %>
-        <% end %>
-        <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+            <a class="carousel-control-prev" href="#example-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#example-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
-</div>
+<% end %>
 
 <%# いいね %>
 <% if logged_in?%>
-    <div class="row mt-4 mb-5">
+    <div class="row mt-5 mb-5">
         <div class="col-sm-3 offset-sm-2 text-center">
             <div id="likes_buttons">
                 <%= render partial: 'likes/like', locals: { post: @post } %>
@@ -133,7 +137,7 @@
 
         <%= f.hidden_field :post_id, value: @post.id %>
         <div class="row mt-2">
-            <div class="col-sm-7 ml-5 text-right">
+            <div class="col-sm-8 ml-3 text-right">
                 <%= f.submit "投稿", class: "comment-btn"%>
             </div>    
         </div>
@@ -144,7 +148,7 @@
 
 <%# コメント一覧　%>
 <% @comments.each do |comment|%>
-        <div class="row">
+        <div class="row mb-2">
             <div class="col m-1">
                 <%= image_tag comment.user.image, size: '40x40' %>
                 <%= comment.user.name%>
@@ -152,10 +156,10 @@
             <% if current_user %>
                 <% if current_user?(comment.user) %>
                     <%= link_to edit_post_comment_path(@post.id, comment.id), class: "mr-2" do %>
-                        <i class="fa fa-edit edit"></i>
+                        <i class="fa fa-edit edit mt-3"></i>
                     <% end %>
                     <%= link_to post_comment_path(@post.id, comment.id ), method: :delete, data: { confirm: "このコメントを削除しますか？" }, class: "mr-4"  do %>
-                        <i class="fa fa-trash trash"></i>
+                        <i class="fa fa-trash trash mt-3"></i>
                     <% end %>
                 <% end %>
             <% end %>

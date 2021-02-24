@@ -165,8 +165,8 @@ footer{
 }
 
 .form{
-    width: 20em;
-    height: 10em;
+    width: 400px;
+    height: 160px;
     resize: none;
     border: 2px solid #4fc3ce;
     border-radius: 0.67em;
@@ -200,14 +200,14 @@ textarea:focus {
     color: black;
 }
 
-.portfolio-discription{
+.mr-60-ml-60{
     margin-left: 60px;
     margin-right: 60px;
 }
 
 /* top_next */
 .back-color{
-    background-color: #dffcff;
+    background-color: #f8ffff;
 }
 
 /* トップページ　*/
@@ -226,8 +226,10 @@ textarea:focus {
     color: white;
     background-color: rgb(154, 232, 235);
     border-radius: 1em;
+    height: 60px;
+    padding-top: 11px;
     .text-border{
-        text-decoration: underline wavy rgb(241, 200, 124);
+        text-decoration: underline;
     }
 }
 
@@ -236,7 +238,7 @@ textarea:focus {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #13B1C0;
+    background-color: #13B1C0;
     color: white;
     font-weight: 900;
     text-align:center;
@@ -343,4 +345,9 @@ textarea:focus {
     br{
         display: none;
     }
+}
+
+/* users/show */
+.setting-icon{
+    color: gray;
 }
