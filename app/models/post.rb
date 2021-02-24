@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   has_many_attached :images
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
+  has_many :tag_maps, dependent: :destroy
+  has_many :tags, through: :tag_maps
 
   #いいねの通知作成
   def create_notification_like!(current_user)
@@ -45,5 +47,21 @@ class Post < ApplicationRecord
     )
     notification.checked = true if notification.visiter_id == notification.visited_id
     notification.save if notification.valid?
+  end
+
+  #タグの保存
+  def save_tags(tag_list)
+    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+    old_tags = current_tags - tag_list
+    new_tags = tag_list - current_tags
+
+    old_tags.each do |old_tag|
+      self.tags.delete Tag.find_by(tag_name: old_tag)
+    end
+
+    new_tags.each do |new_tag|
+      post_new_tag = Tag.find_or_create_by(tag_name: new_tag)
+      self.tags << post_new_tag
+    end
   end
 end

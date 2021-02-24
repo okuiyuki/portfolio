@@ -12,8 +12,8 @@
                 <%= image_tag 'man.png', size: '150x210'%>
             </div>
             <div class="col-sm-4 align-self-center text-center">
-                <p class="top-main-top-text">エンジニアになるために<br>
-                ポートフォリオ作りたいけど<br>
+                <p class="top-main-top-text">エンジニアになるために<br class="d-md-none d-lg-block">
+                ポートフォリオ作りたいけど<br class="d-md-none d-lg-block">
                 なに作ればいいんだろう？</p>
             </div>
         </div>
@@ -34,9 +34,20 @@
                 <div class="col-sm-6">
                     <%= text_field_tag :search, @search, class: "form-control", placeholder: "キーワードを入力してください"%>
                 </div>
-                <div class="col">
+                <div class="col-sm-2">
                     <%= button_tag type: 'submit', class: 'btn btn-info' do %>
                         <i class="fa fa-search"></i>検索
+                    <% end %>
+                </div>
+                <div class="col-sm-2 offset-1 text-center mt-4"><p class="tag_label"><strong>タグ</strong></p></div>
+                <div class="col-sm-6 mt-4">
+                    <% if @tag_list %>
+                        <% @tag_list.each do |tag| %>
+                            <span class="tag mr-3">
+                                <%= check_box_tag 'tag_ids[]', tag.id, false, id: tag.id %>
+                                <%= label_tag tag.id, tag.tag_name %>
+                            </span>
+                        <% end %>
                     <% end %>
                 </div>
             </div>
@@ -46,13 +57,13 @@
         <div class="row justify-content-center">
             <div class="col-sm-4 align-self-center text-center offset-4">
                 <p class="top-main-bottom-text">
-                    みんなはどんなポートフォリオ<br>
-                    作ってるんだろう？<br>
+                    みんなはどんなポートフォリオ<br class="d-md-none d-lg-block">
+                    作ってるんだろう？<br class="d-md-none d-lg-block">
                     レベル感が知りたい
                 </p>
             </div>
             <div class="col-sm-4">
-                <%= image_tag 'women.png', size: '150x220'%>
+                <%= image_tag 'women.png', size: '150x230'%>
             </div>
         </div>
     </div>
