@@ -31,22 +31,22 @@ RSpec.describe 'StaticPages', type: :request do
 
     it 'top_nextテンプレートが表示される(search: nil, category_id: nil)' do
       get top_next_path
-      expect(response.body).to include '投稿一覧'
+      expect(response.body).to include '検索一覧'
     end
 
     it 'top_nextテンプレートが表示される(search: "search", category_id: nil)' do
       get top_next_path params: { search: 'search' }
-      expect(response.body).to include '投稿一覧'
+      expect(response.body).to include '検索一覧'
     end
 
     it 'top_nextテンプレートが表示される(search: nil, category_id: 1)' do
       get top_next_path params: { category_id: 1 }
-      expect(response.body).to include '投稿一覧'
+      expect(response.body).to include '検索一覧'
     end
 
     it 'top_nextテンプレートが表示される(search: "search", category_id: 1)' do
       get top_next_path params: { search: 'search', category_id: 1 }
-      expect(response.body).to include '投稿一覧'
+      expect(response.body).to include '検索一覧'
     end
   end
 end

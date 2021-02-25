@@ -20,8 +20,8 @@
             <% if @tag_list %>
                 <% @tag_list.each do |tag| %>
                     <span class="tag mr-3">
-                        <%= check_box_tag 'tag_ids[]', tag.id %>
-                        <%= label_tag :tag_ids, tag.tag_name %>
+                        <%= check_box_tag 'tag_ids[]', tag.id, @tags.include?("#{tag.id}") ? true : false, id: tag.id %>
+                        <%= label_tag tag.id, tag.tag_name %>
                     </span>
                 <% end %>
             <% end%>
