@@ -67,6 +67,6 @@ class StaticPagesController < ApplicationController
 
     @search = params[:search] if params[:search]
     @category_id = params[:category_id].to_i if params[:category_id].present?
-    @tags = params[:tag_ids]
+    @tags = params[:tag_ids] || []
   end
 end
