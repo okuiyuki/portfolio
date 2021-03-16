@@ -6,7 +6,7 @@ jobs:
         environment:
           - BUNDLER_VERSION: 1.17.2
           - RAILS_ENV: 'test'
-      - image: circleci/mysql:8.0
+      - image: circleci/mysql:8.0.23
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
