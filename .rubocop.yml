@@ -1,0 +1,193 @@
+inherit_from: .rubocop_todo.yml
+
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.6.6
+  TargetRailsVersion: 6.0.3.4
+  Exclude:
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'lib/tasks/auto_annotate_models.rake'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+
+Rails:
+  Enabled: true
+
+AsciiComments:
+  Enabled: false
+
+Layout/BlockAlignment:
+  Exclude:
+    - 'spec/models/category_spec.rb'
+
+  Layout/IndentationWidth:
+    Enabled: false
+
+Layout/LeadingCommentSpace:
+  Exclude:
+    - 'app/controllers/posts_controller.rb'
+    - 'app/helpers/sessions_helper.rb'
+    - 'app/models/post.rb'
+    - 'app/models/user.rb'
+    - 'config/application.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/production.rb'
+    - 'config/routes.rb'
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'app/models/user.rb'
+
+Metrics/AbcSize:
+  Max: 77
+
+# Offense count: 18
+# Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
+# IgnoredMethods: refine
+Metrics/BlockLength:
+  Max: 94
+
+# Offense count: 1
+# Configuration parameters: IgnoredMethods.
+Metrics/CyclomaticComplexity:
+  Max: 13
+
+# Offense count: 7
+# Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
+Metrics/MethodLength:
+  Max: 29
+
+# Offense count: 1
+# Configuration parameters: IgnoredMethods.
+Metrics/PerceivedComplexity:
+  Max: 14
+
+RSpec/ContextWording:
+  Exclude:
+    - 'spec/models/category_spec.rb'
+    - 'spec/models/like_spec.rb'
+    - 'spec/models/notification_spec.rb'
+    - 'spec/requests/comments_request_spec.rb'
+    - 'spec/requests/contacts_request_spec.rb'
+    - 'spec/requests/likes_request_spec.rb'
+    - 'spec/requests/posts_request_spec.rb'
+    - 'spec/requests/users_spec.rb'
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/mailers/contact_spec.rb'
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - 'spec/helpers/comments_helper_spec.rb'
+    - 'spec/helpers/likes_helper_spec.rb'
+    - 'spec/helpers/posts_helper_spec.rb'
+    - 'spec/requests/notifications_request_spec.rb'
+    - 'spec/views/posts/new.html.erb_spec.rb'
+
+
+# Offense count: 114
+# Configuration parameters: AssignmentOnly.
+RSpec/InstanceVariable:
+  Exclude:
+    - 'spec/models/category_spec.rb'
+    - 'spec/models/comment_spec.rb'
+    - 'spec/models/contact_spec.rb'
+    - 'spec/models/like_spec.rb'
+    - 'spec/models/post_spec.rb'
+    - 'spec/models/user_spec.rb'
+    - 'spec/requests/comments_request_spec.rb'
+    - 'spec/requests/likes_request_spec.rb'
+    - 'spec/requests/posts_request_spec.rb'
+    - 'spec/requests/sessions_request_spec.rb'
+    - 'spec/requests/users_spec.rb'
+
+# Offense count: 1
+RSpec/NestedGroups:
+  Max: 4
+
+
+
+# Offense count: 2
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: slashes, arguments
+Rails/FilePath:
+  Exclude:
+    - 'config/application.rb'
+    - 'config/environments/development.rb'
+
+# Offense count: 4
+# Configuration parameters: Include.
+# Include: app/helpers/**/*.rb
+Rails/HelperInstanceVariable:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+    - 'app/helpers/notifications_helper.rb'
+    - 'app/helpers/sessions_helper.rb'
+
+# Offense count: 4
+# Configuration parameters: Include.
+# Include: app/models/**/*.rb
+Rails/InverseOf:
+  Exclude:
+    - 'app/models/notification.rb'
+    - 'app/models/user.rb'
+
+Rails/RedundantForeignKey:
+  Exclude:
+    - 'app/models/notification.rb'
+
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+Rails/Validation:
+  Exclude:
+    - 'app/models/like.rb'  
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Exclude:
+    - 'app/controllers/posts_controller.rb'
+    - 'app/controllers/sessions_controller.rb'
+    - 'app/controllers/static_pages_controller.rb'
+    - 'app/controllers/users_controller.rb'
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'config/puma.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/posts_controller.rb'
+    - 'app/helpers/sessions_helper.rb'
+    - 'app/models/post.rb'
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
+
+Layout/LineLength:
+  Max: 183
