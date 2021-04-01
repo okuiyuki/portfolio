@@ -6,12 +6,11 @@ class StaticPagesController < ApplicationController
   def next
     @tag_list = Tag.all
     count_in_page = 5
-    if params[:category_id].blank?
-      posts = Post.all.includes(images_attachments: :blob, user: { image_attachment: :blob })
-    else
-      posts = Post.where(category_id: params[:category_id]).includes(images_attachments: :blob, user: { image_attachment: :blob })
-    end
-    
+    posts = if params[:category_id].blank?
+              Post.all.includes(images_attachments: :blob, user: { image_attachment: :blob })
+            else
+              Post.where(category_id: params[:category_id]).includes(images_attachments: :blob, user: { image_attachment: :blob })
+            end
     if params[:tag_ids]
       tmp_posts2 = []
       params[:tag_ids].each do |tag_id|
@@ -20,13 +19,12 @@ class StaticPagesController < ApplicationController
       tmp_posts2.uniq!
       posts = tmp_posts2
     end
-
     if params[:search].present?
       posts = Post.where(id: posts.map(&:id)) if params[:tag_ids]
       split_search = params[:search].split(/[[:blank:]]+/)
       tmp_posts = []
       split_search.each do |search|
-        next unless search.present?
+        next if search.blank?
 
         tmp_posts += posts.where(['discription LIKE ? OR title LIKE ?', "%#{search}%", "%#{search}%"])
       end

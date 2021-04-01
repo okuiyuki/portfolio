@@ -64,7 +64,7 @@ Metrics/CyclomaticComplexity:
 # Offense count: 7
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 Metrics/MethodLength:
-  Max: 29
+  Max: 31
 
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.
@@ -190,4 +190,4 @@ Style/RedundantFetchBlock:
     - 'config/puma.rb'
 
 Layout/LineLength:
-  Max: 183
+  Max: 187
