@@ -27,6 +27,7 @@ jobs:
           name: install dependencies
           command: |
             gem install bundler -v 1.17.2
+            bundle update mimemagic
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
@@ -34,10 +35,15 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-# ②ちょっと無理やりですが、database.ymlとdatabase.yml.ciを入れ替える記述です。
+# database.ymlとdatabase.yml.ciを入れ替える記述です。
       - run: mv config/database.yml.ci config/database.yml 
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
+
+      - run:
+          name: yarn install
+          command: yarn install
+      - run: bundle exec bin/webpack
 
 # rubocopを走らせる記述です.
       - run:
