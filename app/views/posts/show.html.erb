@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <%= link_to @post.github_url, @post.github_url %>
+        <%= link_to @post.github_url, @post.github_url, target: :_blank, rel: "noopener noreferrer" %>
     </div>
 <% end %>
 
@@ -68,7 +68,7 @@
         </div>
     </div>
     <div class="mb-3">
-        <%= link_to @post.app_url, @post.app_url %>
+        <%= link_to @post.app_url, @post.app_url, target: :_blank, rel: "noopener noreferrer" %>
     </div>
 <% end %>
 
